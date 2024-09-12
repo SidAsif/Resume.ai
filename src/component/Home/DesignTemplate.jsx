@@ -3,10 +3,10 @@ const DesignTemplate = () => {
     <div className="bg-[#FAFBFD] py-32">
       <div className="flex flex-col md:flex-row items-center justify-between mx-auto max-w-screen-xl px-4 md:px-8 lg:px-16 space-y-8 md:space-y-0 md:space-x-8">
         <div className="w-full md:w-1/2 text-center md:text-left">
-          <h1 className="text-3xl md:text-4xl lg:text-[32px] font-bold mb-4">
+          <h1 className="text-3xl md:text-4xl lg:text-[32px] font-bold mb-4 text-[#1F284F]">
             Professionally Designed Templates
           </h1>
-          <p className="text-base md:text-[16px] text-gray-600 max-w-[490px] mx-auto md:mx-0">
+          <p className="text-base md:text-[16px] text-[#575757] max-w-[490px] mx-auto md:mx-0 ">
             Choose from a variety of modern, ATS-friendly resume templates to
             create a resume that stands out.Our templates are designed not only
             to catch the eye of recruiters but also to pass seamlessly through

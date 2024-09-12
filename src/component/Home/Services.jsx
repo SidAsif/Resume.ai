@@ -27,9 +27,9 @@ const services = [
 
 const Services = () => {
   return (
-    <div className="bg-[#DBE2F2] py-10">
+    <div className="bg-[#EFF6FE] py-10">
       <div className="container mx-auto max-w-screen-xl px-4">
-        <h1 className="text-3xl font-bold text-center mb-8 md:text-5xl mx-auto max-w-[600px] pb-12">
+        <h1 className="text-3xl font-bold text-center mb-8 md:text-5xl mx-auto max-w-[600px] pb-12 text-[#1F284F]">
           Unlock Your Full Potential with Resume.ai
         </h1>
 
@@ -44,7 +44,10 @@ const Services = () => {
 
           <div className="order-1 md:order-2 md:w-1/2 space-y-6">
             {services.map((service, index) => (
-              <div key={index} className="bg-white shadow-md p-6 rounded-lg">
+              <div
+                key={index}
+                className="bg-white shadow-md p-6 rounded-[16px] border border-[#E1E8F0] "
+              >
                 <div className="flex items-center mb-4">
                   <div className="p-2 bg-[#F5F5F5] rounded-full">
                     <img
@@ -57,10 +60,10 @@ const Services = () => {
                     {service.title}
                   </h2>
                 </div>
-                <p className="text-gray-600 mb-4">{service.description}</p>
+                <p className="text-[#575757] mb-4">{service.description}</p>
                 <a
                   href={service.link}
-                  className="text-[#673AB7] hover:underline"
+                  className="text-[#0070F0] hover:underline"
                 >
                   {service.linkText}
                 </a>

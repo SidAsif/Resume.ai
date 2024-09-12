@@ -39,25 +39,25 @@ const Plan = () => {
   ];
 
   return (
-    <div className="min-h-screen flex flex-col md:flex-row justify-center items-center gap-6 max-w-1330px mx-auto bg-[#DBE2F2] px-9 py-10">
+    <div className="min-h-screen flex flex-col md:flex-row justify-center items-center gap-6 max-w-1330px mx-auto bg-[#EFF6FE] px-9 ">
       {plans.map((plan, index) => (
         <div
           key={index}
           className="bg-[#FAFBFD] p-6 rounded-lg shadow-lg w-full max-w-sm md:w-80 flex flex-col justify-between"
         >
           <div className="flex flex-col items-start mb-4">
-            <h2 className="text-xl font-bold">{plan.title}</h2>
+            <h2 className="text-xl font-bold text-[#1F284F]">{plan.title}</h2>
             <p className="text-2xl font-bold">{plan.price}</p>
-            <p className="text-sm text-gray-500">{plan.validity}</p>
+            <p className="text-sm text-[#575757]">{plan.validity}</p>
           </div>
           <ul className="list-disc list-inside mb-6">
             {plan.features.map((feature, i) => (
-              <li key={i} className="text-gray-700">
+              <li key={i} className="text-[#575757]">
                 {feature}
               </li>
             ))}
           </ul>
-          <button className="bg-[#673AB7] text-white py-2 px-4 rounded-lg mt-auto ">
+          <button className="bg-[#0070F0] text-white py-2 px-4 rounded-lg mt-auto ">
             Select Plan
           </button>
         </div>

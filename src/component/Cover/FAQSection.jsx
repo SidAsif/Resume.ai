@@ -1,17 +1,13 @@
 import { useState } from "react";
 
 const FAQSection = () => {
-  // Initialize the state with an array that tracks the visibility of each answer
   const [openStates, setOpenStates] = useState(
-    Array(4).fill(true) // Replace 4 with the actual number of questions
+    Array(4).fill(true) 
   );
 
   const toggleAnswer = (index) => {
-    // Create a copy of the current openStates array
     const newOpenStates = [...openStates];
-    // Toggle the specific answer's visibility
     newOpenStates[index] = !newOpenStates[index];
-    // Update the state
     setOpenStates(newOpenStates);
   };
 
@@ -39,39 +35,46 @@ const FAQSection = () => {
   ];
 
   return (
-    <div className="bg-[#FAFBFD] justify-between mx-auto max-w-screen-xl px-4 md:px-8 lg:px-2 space-y-8 md:space-y-0 md:space-x-8">
-      <div className="flex flex-col items-center p-6">
-        <h1 className="text-2xl font-bold text-center pb-6 md:pb-14 lg:pb-20">
-          Why Use Resume.ai Cover Letter Generator?
-        </h1>
-        <div className="flex flex-col md:flex-row items-center md:items-start space-y-6 md:space-y-0 md:space-x-8">
-          <img
-            src="https://via.placeholder.com/600x400"
-            alt="Resume Generator"
-            className="w-full md:w-1/2 object-cover md:order-1 order-2 pt-10"
-          />
-          <div className="w-full md:w-1/2 flex flex-col space-y-4 order-1 md:order-2">
-            {questions.map((item, index) => (
-              <div key={index} className="border-b pb-4">
+    <div className="bg-[#EFF6FE] ">
+      <div className="bg-[#EFF6FE] justify-between mx-auto max-w-screen-xl px-4 md:px-8 lg:px-2 space-y-8 md:space-y-0 md:space-x-8">
+        <div className="flex flex-col items-center p-6">
+          <h1 className="text-2xl md:text-3xl font-bold text-center pt-5 pb-6 md:pb-14 lg:pb-20 text-[#1F284F]">
+            Why Use Resume.ai Cover Letter Generator?
+          </h1>
+          <div className="flex flex-col md:flex-row items-center md:items-start space-y-6 md:space-y-0 md:space-x-8">
+            <img
+              src="https://via.placeholder.com/600x400"
+              alt="Resume Generator"
+              className="w-full md:w-1/2 object-cover md:order-1 order-2 pt-10"
+            />
+            <div className="w-full md:w-1/2 flex flex-col space-y-4 order-1 md:order-2 ">
+              {questions.map((item, index) => (
                 <div
-                  className="flex justify-between items-center cursor-pointer"
-                  onClick={() => toggleAnswer(index)}
+                  key={index}
+                  className="border-b pb-4 bg-white border-[#E1E8F0] p-4 rounded-[16px] shadow-md"
                 >
-                  <h2 className="text-lg font-semibold">{item.question}</h2>
-                  <span className="transform transition-transform">
-                    {openStates[index] ? "▼" : "►"}
-                  </span>
+                  <div
+                    className="flex justify-between items-center cursor-pointer "
+                    onClick={() => toggleAnswer(index)}
+                  >
+                    <h2 className="text-lg font-semibold">{item.question}</h2>
+                    <span className="transform transition-transform">
+                      {openStates[index] ? "▼" : "►"}
+                    </span>
+                  </div>
+                  <div
+                    className={`mt-2 text-gray-700 transition-all duration-300 ${
+                      openStates[index]
+                        ? "max-h-full"
+                        : "max-h-0 overflow-hidden"
+                    }`}
+                    style={{ minHeight: openStates[index] ? "50px" : "0px" }}
+                  >
+                    {item.answer}
+                  </div>
                 </div>
-                <div
-                  className={`mt-2 text-gray-700 transition-all duration-300 ${
-                    openStates[index] ? "max-h-full" : "max-h-0 overflow-hidden"
-                  }`}
-                  style={{ minHeight: openStates[index] ? "50px" : "0px" }}
-                >
-                  {item.answer}
-                </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </div>

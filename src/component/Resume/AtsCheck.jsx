@@ -1,6 +1,6 @@
-const SpellCheck = () => {
+const AtsCheck = () => {
   return (
-    <div className="bg-[#EFF6FE] py-32">
+    <div className="bg-[#FAFBFC] py-32">
       <div className="flex flex-col-reverse md:flex-row items-center justify-between mx-auto max-w-screen-xl px-4 md:px-8 lg:px-16 space-y-8 md:space-y-0 md:space-x-8 ">
         <div className="w-full md:w-1/2 py-9 md:py-0">
           <img
@@ -12,12 +12,14 @@ const SpellCheck = () => {
 
         <div className="w-full md:w-1/2 text-center md:text-left ">
           <h1 className="text-xl md:text-4xl lg:text-[32px] font-semibold mb-4 text-[#1F284F]">
-            Real-time spell check
+            Perform an ATS compatibility check
           </h1>
           <p className="text-base md:text-[16px] text-[#575757] max-w-[500px] mx-auto md:mx-0">
-            Never send a cover letter with a typo ever again! Take advantage of
-            our real-time spell checker and get a cover letter that makes your
-            personality stand out.
+            We score your resume&apos;s ATS compatibility by assessing its
+            parsability. We&apos;ve reverse-engineered top applicant tracking
+            systems to check for skills, keywords, readable contact info, file
+            type, and length. You&apos;ll receive suggestions for improvements
+            based on this analysis.
           </p>
         </div>
       </div>
@@ -25,4 +27,4 @@ const SpellCheck = () => {
   );
 };
 
-export default SpellCheck;
+export default AtsCheck;

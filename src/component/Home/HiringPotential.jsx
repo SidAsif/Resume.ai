@@ -1,6 +1,6 @@
 const HiringPotential = () => {
   return (
-    <div className="bg-[#DBE2F2] py-32">
+    <div className="bg-[#EFF6FE] py-32">
       <div className="flex flex-col-reverse md:flex-row items-center justify-between mx-auto max-w-screen-xl px-4 md:px-8 lg:px-16 space-y-8 md:space-y-0 md:space-x-8 ">
         {/*  Image */}
         <div className="w-full md:w-1/2 py-9 md:py-0">
@@ -12,10 +12,10 @@ const HiringPotential = () => {
         </div>
 
         <div className="w-full md:w-1/2 text-center md:text-left ">
-          <h1 className="text-3xl md:text-4xl lg:text-[32px] font-bold mb-4 ">
+          <h1 className="text-3xl md:text-4xl lg:text-[32px] font-bold mb-4 text-[#1F284F] ">
             Maximize Your Hiring Potential
           </h1>
-          <p className="text-base md:text-[16px] text-gray-600 max-w-[500px] mx-auto md:mx-0">
+          <p className="text-base md:text-[16px] text-[#575757] max-w-[500px] mx-auto md:mx-0">
             Discover expert tips and strategies to optimize your resume, stand
             out from the competition, and land your dream job Our solutions are
             designed to enhance your recruitment strategy and ensure you find
