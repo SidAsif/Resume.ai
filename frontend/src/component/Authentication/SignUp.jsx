@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import { useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
@@ -6,11 +6,14 @@ import { FaEye, FaEyeSlash } from "react-icons/fa";
 const SignUp = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
-  const [name, setname] = useState("");
+  const [error, setError] = useState("");
+
+  const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const [error, setError] = useState("");
+
+  const navigate = useNavigate()
 
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
@@ -20,7 +23,7 @@ const SignUp = () => {
     setShowConfirmPassword(!showConfirmPassword);
   };
 
-  const handleSignUp = (e) => {
+  const handleSignUp = async (e) => {
     e.preventDefault();
 
     if (password !== confirmPassword) {
@@ -31,7 +34,39 @@ const SignUp = () => {
     setError("");
 
     //  add your sign-up logic here
+    try {
+      const response = await fetch("http://127.0.0.1:8000/auth/signup", {
+        method: "POST",
+        headers: {
+          "Content-Type":"application/json"
+        },
+        body: JSON.stringify({
+          username:username,
+          email:email,
+          password:password,
+          confirmPassword:confirmPassword
+        })
+      })
+
+      if (!response.ok) {
+        const errrorData = await response.json()
+        throw new Error(errrorData.detail || "An error in signup")
+      }
+
+      const data = await response.json()
+      console.log("Signup successfull",data)
+      //console.log(data)
+      //localStorage.setItem("Resume_ai-user",JSON.stringify(data))
+      navigate("/",{replace:true})
+
+    } catch (error) {
+      console.error("signup error:", error)
+      setError("An error occurred. Please try again later.")
+    }
   };
+    const handleGoogleSignUp = () => {
+      window.location.href = "http://127.0.0.1:8000/auth/googleLogin"
+    }
 
   return (
     <div className="flex flex-col md:flex-row h-screen">
@@ -69,14 +104,14 @@ const SignUp = () => {
                 htmlFor="name"
                 className="block text-sm font-medium text-gray-700"
               >
-                Name
+                Email Id
               </label>
               <input
                 type="text"
-                id="name"
-                value={name}
-                onChange={(e) => setname(e.target.value)}
-                placeholder="Enter Your name"
+                id="emailId"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="Enter mail Id"
                 className="w-full p-3 mt-1 border border-[#B7BFC7] rounded-[8px] focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
             </div>
@@ -174,6 +209,7 @@ const SignUp = () => {
             <button
               type="button"
               className="w-full p-3 bg-white border border-gray-300 text-gray-700 rounded-[30px] font-semibold flex items-center justify-center hover:bg-gray-100 transition"
+              onClick={handleGoogleSignUp}
             >
               <FcGoogle className="text-xl mr-2" /> {/* Google icon */}
               Signup with Google
