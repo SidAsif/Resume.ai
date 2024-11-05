@@ -23,6 +23,9 @@ import Template7 from "./component/Resume_Templates/Template7";
 import Template8 from "./component/Resume_Templates/Template8";
 import Template9 from "./component/Resume_Templates/Template9";
 import Template10 from "./component/Resume_Templates/Template10";
+import ForgotPswd from "./component/Authentication/ForgotPswd";
+import AtsResume from "./component/Ats/AtsResume";
+import NewPswd from "./component/Authentication/NewPswd";
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -39,6 +42,7 @@ function Layout() {
   const hideNavbarAndFooter = [
     "/signup",
     "/signin",
+    "/forgotpswd",
     "/template1",
     "/template2",
     "/template3",
@@ -49,6 +53,7 @@ function Layout() {
     "/template8",
     "/template9",
     "/template10",
+    "/new-password",
   ].includes(location.pathname);
 
   return (
@@ -61,6 +66,7 @@ function Layout() {
         <Route path="/pricing" element={<PricingPage />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/signin" element={<SignIn />} />
+        <Route path="/forgotpswd" element={<ForgotPswd />} />
         <Route path="/template1" element={<Template1 />} />
         <Route path="/template2" element={<Template2 />} />
         <Route path="/template3" element={<Template3 />} />
@@ -71,6 +77,8 @@ function Layout() {
         <Route path="/template8" element={<Template8 />} />
         <Route path="/template9" element={<Template9 />} />
         <Route path="/template10" element={<Template10 />} />
+        <Route path="/atsresume" element={<AtsResume />} />
+        <Route path="/new-password" element={<NewPswd />} />
       </Routes>
       {!hideNavbarAndFooter && <Footer />}
     </div>

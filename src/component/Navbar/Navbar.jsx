@@ -29,12 +29,7 @@ function Navbar() {
               Pricing
             </Link>
           </nav>
-          <a
-            href="/signup"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-block"
-          >
+          <a href="/signup" rel="noopener noreferrer" className="inline-block">
             <button className="bg-[#3CBA79] rounded-[30px] py-2 px-4 text-white transition hover:scale-90">
               Get Started
             </button>
@@ -92,7 +87,6 @@ function Navbar() {
           <div className="flex justify-center mb-12">
             <a
               href="/signup"
-              target="_blank"
               rel="noopener noreferrer"
               className="inline-block"
             >

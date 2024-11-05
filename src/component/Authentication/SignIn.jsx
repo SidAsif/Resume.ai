@@ -157,9 +157,9 @@ const SignIn = () => {
                 </div>
               </div>
               <p className="text-left text-[#E86969] ">
-                <a href="#" className=" hover:underline">
+                <Link to="/forgotpswd" className=" hover:underline">
                   Forgot Password?
-                </a>
+                </Link>
               </p>
 
               <button

@@ -5,10 +5,14 @@ const Template2 = () => {
         {/* Left Side */}
         <div className="w-[65%] p-0 box-border">
           <div className="bg-[#a6eca3] text-[#064d03] p-4">
-            <div className="text-4xl font-bold text-[#333]">John Doe</div>
-            <div className="text-2xl text-[#555] mt-1">Software Engineer</div>
+            <div className="text-4xl font-bold text-[#333]" id="name">
+              John Doe
+            </div>
+            <div className="text-2xl text-[#555] mt-1" id="role">
+              Software Engineer
+            </div>
           </div>
-          <div className="m-5 text-sm text-[#555]">
+          <div className="m-5 text-sm text-[#555]" id="summary">
             <p>
               Passionate software engineer with 5 years of experience in
               developing scalable web applications and working across the full
@@ -18,12 +22,12 @@ const Template2 = () => {
             </p>
           </div>
           <div className="mb-4">
-            <h2 className="bg-[#a6eca3] text-[#064d03] p-2 text-xl mb-2 box-border  font-semibold">
+            <h2 className="bg-[#a6eca3] text-[#064d03] p-2 text-xl mb-2 box-border  font-semibold" id="experience">
               Professional Experience
             </h2>
             <div className="px-5">
               <div className="flex justify-between items-center mb-2">
-                <h3 className="text-[16px] font-medium">
+                <h3 className="text-[16px] font-medium" id="exp1">
                   Software Engineer at ABC Corp
                 </h3>
                 <span className="text-xs text-[#777]">Jan 2020 - Present</span>
@@ -37,7 +41,7 @@ const Template2 = () => {
             </div>
             <div className="px-5 mt-4 ">
               <div className="flex justify-between items-center mb-2">
-                <h3 className="text-[16px] font-medium">
+                <h3 className="text-[16px] font-medium" id="exp2">
                   Junior Developer at XYZ Ltd
                 </h3>
                 <span className="text-xs text-[#777]">Jan 2018 - Dec 2019</span>
@@ -51,12 +55,12 @@ const Template2 = () => {
             </div>
           </div>
           <div className="mb-4">
-            <h2 className="bg-[#a6eca3] text-[#064d03] p-2 text-xl mb-2 box-border  font-semibold">
+            <h2 className="bg-[#a6eca3] text-[#064d03] p-2 text-xl mb-2 box-border  font-semibold" id="education">
               Education
             </h2>
             <div className="px-5">
               <div className="flex justify-between items-center ">
-                <h3 className="text-[16px] font-medium">
+                <h3 className="text-[16px] font-medium" id="edu1">
                   Bachelor of Computer Science
                 </h3>
                 <span className="text-xs text-[#777]">2014 - 2018</span>
@@ -78,12 +82,12 @@ const Template2 = () => {
             </div>
           </div>
           <div className="mb-4">
-            <h2 className="bg-[#a6eca3] text-[#064d03] p-2 text-xl mb-2 box-border font-semibold">
+            <h2 className="bg-[#a6eca3] text-[#064d03] p-2 text-xl mb-2 box-border font-semibold" id="certificate">
               Certificates
             </h2>
             <div className="px-5">
               <div className="flex justify-between items-center mb-2">
-                <h3 className="text-[16px] font-medium">
+                <h3 className="text-[16px] font-medium" id="certificate1">
                   Certified Web Developer
                 </h3>
                 <span className="text-xs text-[#777]">2020</span>
@@ -95,7 +99,7 @@ const Template2 = () => {
                 and databases.
               </p>
               <div className="flex justify-between items-center mb-2 mt-4">
-                <h3 className="text-[16px] font-medium">
+                <h3 className="text-[16px] font-medium" id="certificate2">
                   Cloud Computing Certification
                 </h3>
                 <span className="text-xs text-[#777]">2019</span>
@@ -111,21 +115,21 @@ const Template2 = () => {
         </div>
         {/* Right Side */}
         <div className="w-[35%] bg-[#064d03] text-white flex flex-col items-center p-0 box-border">
-          <div className="profile-pic w-[100px] h-[100px] my-5">
+          <div className="profile-pic w-[100px] h-[100px] my-5" id="profile-pic">
             <img
               src="/avatar.png"
               alt="Profile"
-              className="w-full h-full rounded-full object-cover"
+              className="w-full h-full rounded-full object-cover" 
             />
           </div>
-          <div className="contact-info text-center mb-5">
+          <div className="contact-info text-center mb-5" id="address">
             <p>123 Main Street</p>
             <p>City, State, ZIP</p>
             <p>Country</p>
             <p>johndoe@example.com</p>
           </div>
           <div className="w-full box-border">
-            <h2 className="bg-[#064d03] text-white p-2 text-xl ml-3">
+            <h2 className="bg-[#064d03] text-white p-2 text-xl ml-3" id="skill">
               Key Skills
             </h2>
             <ul className="list-none p-0 m-0 mx-5 mt-2">
