@@ -1,5 +1,6 @@
 import { useRef, useState } from "react";
 import "./Upload.css";
+import { Link } from "react-router-dom";
 
 const Upload = () => {
   const fileInputRef = useRef(null);
@@ -141,12 +142,17 @@ const Upload = () => {
 
         {/* Scan Your Resume Button */}
         <div className="flex justify-center mt-8">
-          <button
+          <Link
+            to={resumeName && jobDescription ? "/atsresume" : "#"}
             onClick={handleScanResumeClick}
-            className="px-6 py-3 bg-blue-500 text-white font-semibold rounded-[30px] hover:bg-blue-600 transition"
+            className={`px-6 py-3 font-semibold rounded-[30px] transition ${
+              resumeName && jobDescription
+                ? "bg-blue-500 text-white hover:bg-blue-600"
+                : "bg-gray-300 text-gray-500 cursor-not-allowed"
+            }`}
           >
             Scan Your Resume
-          </button>
+          </Link>
         </div>
 
         {/* Text Modal */}

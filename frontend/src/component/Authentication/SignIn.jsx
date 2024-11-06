@@ -3,45 +3,45 @@ import { FcGoogle } from "react-icons/fc";
 import { Link, useNavigate } from "react-router-dom";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 const SignIn = () => {
-  const [email, setEmail] = useState("")
-  const [password, setPassword] = useState("")
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   const [showPassword, setShowPassword] = useState(true);
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
   };
-  
+
   const handleSignin = async (e) => {
-    e.preventDefault()
+    e.preventDefault();
 
     try {
       const response = await fetch("http://127.0.0.1:8000/auth/login", {
         method: "POST",
         headers: {
-          "Content-Type":"application/json"
+          "Content-Type": "application/json",
         },
         body: JSON.stringify({
           email: email,
-          password: password
-        })
-      })
+          password: password,
+        }),
+      });
 
       if (!response.ok) {
-        const errorData = await response.json()
-        throw new Error(errorData.detail || "An error in Signin")
+        const errorData = await response.json();
+        throw new Error(errorData.detail || "An error in Signin");
       }
 
-      const data = await response.json()
-      console.log("Signin successfull", data)
-      
-      navigate("/",{replace:true})
+      const data = await response.json();
+      console.log("Signin successfull", data);
+
+      navigate("/", { replace: true });
     } catch (error) {
-      console.error("Signin error: ", error)
+      console.error("Signin error: ", error);
     }
-  }
+  };
 
   return (
     <div className="flex flex-col md:flex-row h-screen">
@@ -115,11 +115,7 @@ const SignIn = () => {
                     </span>
                   </div>
                 </div>
-                <p className="text-left text-[#E86969] ">
-                  <a href="#" className=" hover:underline">
-                    Forgot Password?
-                  </a>
-                </p>
+
                 <button
                   type="submit"
                   className="w-full p-3 bg-blue-500 text-white rounded-[30px] hover:bg-blue-600 transition"
@@ -153,7 +149,7 @@ const SignIn = () => {
           {/* Content for medium and large screens */}
           <div className="hidden md:block">
             <h2 className="text-2xl font-bold mb-6">Login</h2>
-            <form className="space-y-4"onSubmit={handleSignin} >
+            <form className="space-y-4" onSubmit={handleSignin}>
               <div className="text-left">
                 <label
                   htmlFor="username"
@@ -197,10 +193,10 @@ const SignIn = () => {
                   </span>
                 </div>
               </div>
-              <p className="text-left text-[#E86969] ">
-                <a href="#" className=" hover:underline">
+              <p className="text-left text-[#E86969]">
+                <Link to="/forgotpswd" className="hover:underline">
                   Forgot Password?
-                </a>
+                </Link>
               </p>
 
               <button
