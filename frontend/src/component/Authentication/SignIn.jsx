@@ -1,13 +1,48 @@
 import { useState } from "react";
 import { FcGoogle } from "react-icons/fc";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 const SignIn = () => {
+  const [email, setEmail] = useState("")
+  const [password, setPassword] = useState("")
+
   const [showPassword, setShowPassword] = useState(true);
+
+  const navigate = useNavigate()
 
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
   };
+  
+  const handleSignin = async (e) => {
+    e.preventDefault()
+
+    try {
+      const response = await fetch("http://127.0.0.1:8000/auth/login", {
+        method: "POST",
+        headers: {
+          "Content-Type":"application/json"
+        },
+        body: JSON.stringify({
+          email: email,
+          password: password
+        })
+      })
+
+      if (!response.ok) {
+        const errorData = await response.json()
+        throw new Error(errorData.detail || "An error in Signin")
+      }
+
+      const data = await response.json()
+      console.log("Signin successfull", data)
+      
+      navigate("/",{replace:true})
+    } catch (error) {
+      console.error("Signin error: ", error)
+    }
+  }
+
   return (
     <div className="flex flex-col md:flex-row h-screen">
       {/* Left Side */}
@@ -35,17 +70,19 @@ const SignIn = () => {
           <div className=" md:hidden h-screen flex items-center justify-center">
             <div className="w-full max-w-md">
               <h2 className="text-2xl font-bold mb-6">Login</h2>
-              <form className="space-y-4">
+              <form className="space-y-4" onSubmit={handleSignin}>
                 <div className="text-left">
                   <label
                     htmlFor="username"
                     className="block text-sm font-medium text-gray-700"
                   >
-                    Username
+                    Email Id
                   </label>
                   <input
                     type="text"
                     id="username"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
                     placeholder="Enter username"
                     className="w-full p-3 mt-1 border border-[#B7BFC7] rounded-[8px] focus:outline-none focus:ring-2 focus:ring-blue-500"
                   />
@@ -54,6 +91,8 @@ const SignIn = () => {
                   <label
                     htmlFor="password"
                     className="block text-sm font-medium text-gray-700"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
                   >
                     Password
                   </label>
@@ -114,18 +153,19 @@ const SignIn = () => {
           {/* Content for medium and large screens */}
           <div className="hidden md:block">
             <h2 className="text-2xl font-bold mb-6">Login</h2>
-            <form className="space-y-4">
+            <form className="space-y-4"onSubmit={handleSignin} >
               <div className="text-left">
                 <label
                   htmlFor="username"
                   className="block text-sm font-medium text-gray-700"
                 >
-                  Username
+                  Email Id
                 </label>
                 <input
                   type="text"
-                  id="username"
+                  id="email"
                   placeholder="Enter username"
+                  onChange={(e) => setEmail(e.target.value)}
                   className="w-full p-3 mt-1 border border-[#B7BFC7] rounded-[8px] focus:outline-none focus:ring-2 focus:ring-blue-500"
                 />
               </div>
@@ -142,6 +182,7 @@ const SignIn = () => {
                     type={showPassword ? "text" : "password"}
                     id="password"
                     placeholder="Enter password"
+                    onChange={(e) => setPassword(e.target.value)}
                     className="w-full p-3 border border-[#B7BFC7] rounded-[8px] focus:outline-none focus:ring-2 focus:ring-blue-500"
                   />
                   <span
